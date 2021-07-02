@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_dialog_alter_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/add_region"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold"
+                android:textColor="@color/black_33"/>
+
+            <ImageView
+                android:id="@+id/dialog_add_region_image_cancel"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_close" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/name"
+                android:textSize="@dimen/size_17" />
+
+            <EditText
+                android:id="@+id/dialog_add_region_name"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/shape_button_white_full"
+                android:padding="10dp"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/picture"
+                android:textSize="@dimen/size_17" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_select_region_picture_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/dialog_add_region_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_weight=".5"
+                android:background="@drawable/shape_button_white_full"
+                android:stateListAnimator="@null"
+                android:text="@string/dialog_cancel"
+                android:textSize="@dimen/size_14"
+                android:textColor="@color/black_33"/>
+
+            <Button
+                android:id="@+id/dialog_add_region_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight=".5"
+                android:background="@drawable/shape_switch_bg_green"
+                android:stateListAnimator="@null"
+                android:text="@string/dialog_confirm"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_14"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

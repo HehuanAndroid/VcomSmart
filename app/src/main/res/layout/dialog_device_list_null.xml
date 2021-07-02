@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/dialog_title"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold"
+                android:textColor="@color/black_33"/>
+
+            <ImageView
+                android:id="@+id/iv_dialog_cancel"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_close" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/dialog_message_add_device_into_empty_list"
+            android:textSize="@dimen/size_17"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/dialog_message_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:layout_weight=".5"
+                android:background="@drawable/shape_switch_bg_gray_f6"
+                android:stateListAnimator="@null"
+                android:text="@string/dialog_cancel"
+                android:textColor="@color/black_33"
+                android:textSize="@dimen/size_14"
+                />
+
+            <Button
+                android:id="@+id/dialog_message_conform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:layout_weight=".5"
+                android:background="@drawable/shape_switch_bg_green"
+                android:stateListAnimator="@null"
+                android:text="@string/dialog_confirm"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_14"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

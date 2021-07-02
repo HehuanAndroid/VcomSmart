@@ -1,0 +1,160 @@
+import java.text.SimpleDateFormat
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    buildFeatures.dataBinding = true
+
+    defaultConfig {
+        applicationId "com.vcom.smartlight"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 104
+        //versionName "1.0.0"   //客户端测试
+        //versionName "1.0.1"
+        //1.登录界面UI调整，设置输入框动画效果
+        //2.修复各个模块功及UI 主界面、智能界面、我的界面等
+        //3.各种灯调节控界面、场景中设备功能保存、执行等
+        //4.我的界面密码修改、隐私政策内容显示
+        //versionName "1.0.2"
+        //1.添加体验空间选项、增加单独的区域管理页面
+        //2.修复部分设备功能问题 - 三位开关调控
+        //3.使用高德地图sdk获取定位和天气信息
+        //4.调整部分ui样式 - 使用新的场景图片、调控滑动条做调整、使用ttf格式显示icon
+        versionName "1.0.3"
+        //1.去除列表item阴影
+        //2.添加问题解答部分、调整部分ui及修复部分问题
+        versionName "1.0.4"
+        //1.更新问题解答部分
+        //2.更新体验空间内容、调整部分ui界面
+        versionName "1.0.5"
+        //1.更新区域管理部分功能
+        //2.更新体验空间内容
+        //3.更新设备部分调控功能范围
+        versionName "1.0.6"
+        //1.更新设备调控功能保存上一次参数、RGB灯设备调控显示rgb值
+        //2.更新设备离线的情况下无法在场景中添加
+        //3.变更部分提示内容
+
+    }
+
+    def keystoreFilepath = ''
+    def keystorePSW = ''
+    def keystoreAlias = ''
+    def keystoreAliasPSW = ''
+    def keyfile = file('s.keystore.temp')
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    keystoreFilepath = properties.getProperty("keystore.path")
+
+    if (keystoreFilepath) {
+        keystorePSW = properties.getProperty("keystore.password")
+        keystoreAlias = properties.getProperty("keystore.alias")
+        keystoreAliasPSW = properties.getProperty("keystore.alias_password")
+        keyfile = file(keystoreFilepath)
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+            storeFile keyfile
+            storePassword keystorePSW
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            if (keyfile.exists()) {
+                println("WITH -> buildTypes -> release: using jks key")
+                signingConfig signingConfigs.release
+            } else {
+                println("WITH -> buildTypes -> release: using default key")
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                def df = new SimpleDateFormat("yyyy-MM-dd_HH-mm")
+                outputFileName = "VcomSmart_official_v${defaultConfig.versionName}_${df.format(new Date())}.apk"
+            }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'org.conscrypt:conscrypt-openjdk-uber:1.1.3'
+    
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    implementation 'androidx.room:room-runtime:2.3.0-alpha03'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0-alpha03'
+
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    implementation 'cat.ereza:customactivityoncrash:2.3.0'
+
+    implementation "com.umeng.umsdk:common:9.3.0"
+    implementation "com.umeng.umsdk:asms:1.1.3"
+    implementation "com.umeng.umsdk:crash:0.0.5"
+
+    implementation project(':BluetoothLightLib')
+
+    compile 'com.github.humorousz:AnimationSequenceDrawable:1.0.1-SNAPSHOT'
+    compile 'com.facebook.fresco:animated-webp:0.12.0'
+    compile 'com.facebook.fresco:animated-gif:0.12.0'
+
+    /*图片加载框架 Glide*/
+    compile 'com.github.bumptech.glide:glide:4.4.0'
+
+    /*Button点击加载动画 */
+    //compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+
+    /*Button 带progress载入效果 */
+    compile 'cn.weidongjian.android:progress-button:0.2'
+
+    /*引入高德地图 2D地图sdk */
+    compile 'com.amap.api:map2d:latest.integration'
+    /*引入高德地图 定位sdk */
+    compile 'com.amap.api:location:latest.integration'
+    /*引入高德地图 搜索sdk */
+    compile 'com.amap.api:search:latest.integration'
+
+    implementation 'com.aliyun:dysmsapi20170525:2.0.4'
+    implementation group: 'xerces', name: 'xercesImpl', version: '2.11.0'
+}

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.vcom.smartlight.uivm.LoginVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".ui.LoginActivity">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".74"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/login_view_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_login_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".9"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.493"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".9" />
+
+        <LinearLayout
+            android:id="@+id/ll_login_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintHorizontal_bias="0.35"
+            app:layout_constraintStart_toStartOf="@+id/login_view_center"
+            app:layout_constraintTop_toTopOf="@+id/login_view_center"
+            app:layout_constraintVertical_bias="0.15"
+            app:layout_constraintWidth_percent="0.7">
+
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_login"
+                android:textSize="@dimen/size_40"
+                android:textColor="@color/black_33"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_vcom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_name_title"
+                android:textSize="@dimen/size_40"
+                android:textColor="@color/black_33"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_username_information"
+            android:textSize="@dimen/size_17"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ll_login_title"
+            app:layout_constraintTop_toBottomOf="@+id/ll_login_title"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_password_information"
+            android:textSize="@dimen/size_17"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ll_login_title"
+            app:layout_constraintTop_toBottomOf="@+id/ll_login_title"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:src="@drawable/img_login_logo"
+            app:layout_constraintBottom_toBottomOf="@id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".24"
+            app:layout_constraintLeft_toLeftOf="@id/login_view_center"
+            app:layout_constraintStart_toStartOf="@+id/login_view_center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".34"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".64" />
+
+        <ImageView
+            android:id="@+id/login_iv_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_login_user_name"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".04"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintLeft_toLeftOf="@id/login_view_center"
+            app:layout_constraintRight_toRightOf="@id/login_view_center"
+            app:layout_constraintTop_toTopOf="@id/login_view_center"
+            app:layout_constraintVertical_bias="0.53"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".036" />
+
+        <ImageView
+            android:id="@+id/login_iv_back"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_login_back2"
+            android:visibility="gone"
+            android:onClick="@{()->vm.backEditTextAccount()}"
+            app:layout_constraintBottom_toTopOf="@+id/login_commit"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_percent=".04"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="@+id/login_view_center"
+            app:layout_constraintTop_toBottomOf="@+id/ll_login_title"
+            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintWidth_percent=".1" />
+
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/shape_switch_bg_gray_f6"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="16"
+            android:text="@={vm.userName}"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/size_20"
+            android:textAlignment="center"
+            android:digits="@string/rule_password_lowercase"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".075"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ll_login_title"
+            app:layout_constraintTop_toBottomOf="@+id/ll_login_title"
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".75"
+            tools:ignore="LabelFor" />
+
+        <ImageView
+            android:id="@+id/login_iv_pass"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_login_user_pass"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".04"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="@+id/login_view_center"
+            app:layout_constraintTop_toTopOf="@id/login_view_center"
+            app:layout_constraintVertical_bias="0.654"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".036"
+            tools:ignore="ContentDescription" />
+
+
+        <com.vcom.smartlight.widget.PasswordEditTextView
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_switch_bg_gray_f6"
+            android:importantForAutofill="no"
+            android:maxLength="5"
+            android:inputType="textPassword"
+            android:text="@={vm.userPassword}"
+            android:textCursorDrawable="@null"
+            android:textSize="17sp"
+            android:digits="@string/rule_password_lowercase"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".075"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ll_login_title"
+            app:layout_constraintTop_toBottomOf="@+id/ll_login_title"
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".75"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/login_register_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册账号"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/login_view_center"
+            app:layout_constraintHorizontal_bias="0.716"
+            app:layout_constraintLeft_toLeftOf="@id/login_view_center"
+            app:layout_constraintRight_toRightOf="@id/login_view_center"
+            app:layout_constraintTop_toTopOf="@id/login_view_center"
+            app:layout_constraintVertical_bias="0.739" />
+
+        <Button
+            android:id="@+id/login_commit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_radius_green"
+            android:onClick="@{()->vm.userLogin()}"
+            android:stateListAnimator="@null"
+            android:text="@string/login_login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_17"
+            app:layout_constraintBottom_toBottomOf="@id/login_view_center"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent=".0654"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/ll_login_title"
+            app:layout_constraintEnd_toEndOf="@id/login_view_center"
+            app:layout_constraintTop_toBottomOf="@id/ll_login_title"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".75" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:gravity="center|start"
+            android:onClick="@{()->vm.goAppHelp()}"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/login_commit"
+            app:layout_constraintTop_toBottomOf="@+id/login_commit"
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintWidth_percent="0.35">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_app_help"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_app_help"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:gravity="center|end"
+            android:visibility="visible"
+            android:onClick="@{()->vm.goAccountRegister()}"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_commit"
+            app:layout_constraintTop_toBottomOf="@+id/login_commit"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintWidth_percent="0.35">
+
+            <ImageView
+                android:visibility="gone"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_app_help"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_account_register"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/login_view_center"
+            app:layout_constraintEnd_toEndOf="@+id/login_view_center"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/login_view_center"
+            app:layout_constraintTop_toBottomOf="@+id/login_commit"
+            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintWidth_percent="0.9">
+
+            <LinearLayout
+                android:id="@+id/ll_agreement"
+                android:layout_width="@dimen/size_30"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{()->vm.isClickAgree()}">
+
+                <ImageView
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:id="@+id/iv_agreement"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:background="@drawable/ic_select_no"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_user_document_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_agreement_title_all"
+                android:textSize="@dimen/size_14"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

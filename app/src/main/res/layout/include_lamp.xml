@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/device_include_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="12dp"
+                android:text="@string/switch_status"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/device_setting_include_lamp_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:checked="true" />
+
+        </RelativeLayout>
+
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/device_setting_include_lamp_view_switch"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/device_include_title">
+
+            <LinearLayout
+                android:id="@+id/ll_control_settings_bar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_control_brightness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="@string/brightness"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_control_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/color_temperature"
+                    android:textColor="@color/gray_c9"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_control_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="@string/color_panel"
+                    android:textColor="@color/gray_c9"
+                    android:textSize="21sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <com.vcom.smartlight.widget.ColorPickerView
+                android:id="@+id/device_include_color_picker"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                app:layout_constraintDimensionRatio="w,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            &lt;!&ndash;<com.vcom.smartlight.widget.SlideColorPickerView
+                android:id="@+id/scv_color_picker"
+                android:layout_width="180dp"
+                android:layout_height="340dp"
+                android:visibility="visible"
+                app:indicatorColor="#fff"
+                app:indicatorEnable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6"
+                app:orientation="vertical" />&ndash;&gt;
+            &lt;!&ndash;<androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_color_value"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:visibility="visible"
+                android:background="@drawable/shape_radius_touch_bg_green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.37"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scv_color_picker"
+                app:layout_constraintVertical_bias="0.0"/>&ndash;&gt;
+
+            <RelativeLayout
+                android:id="@+id/device_include_view_colorPicker"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintHeight_percent="0.75"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.vcom.smartlight.widget.SlideColorPickerView
+                    android:id="@+id/scv_color_picker"
+                    android:layout_width="185dp"
+                    android:layout_height="350dp"
+                    android:visibility="visible"
+                    app:indicatorColor="#fff"
+                    app:indicatorEnable="true"
+                    app:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <View
+                    android:id="@+id/cl_color_value"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_alignStart="@+id/scv_color_picker"
+                    android:layout_below="@+id/scv_color_picker"
+                    android:background="@drawable/shape_radius_touch_bg_green"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            &lt;!&ndash;<androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/device_include_view_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:layout_constraintHeight_percent="0.75"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/device_include_txt_brightness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/brightness"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/device_include_txt_brightness_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintVertical_bias="0.05"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_control_brightness_bar"
+                    android:layout_width="380dp"
+                    android:layout_height="130dp"
+                    android:orientation="vertical"
+                    android:rotation="-90"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.75"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.75">
+
+                    <SeekBar
+                        android:id="@+id/device_include_sb_brightness"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="100"
+                        android:min="10"
+                        android:progress="50"
+                        android:progressDrawable="@drawable/layer_list_seek_bar_light"
+                        android:thumb="@drawable/selector_seek_bar_thumb"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>&ndash;&gt;
+            &lt;!&ndash;<androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/device_include_view_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:layout_constraintHeight_percent="0.75"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar">
+
+                <TextView
+                    android:id="@+id/device_include_txt_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="@string/color_temperature"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/device_include_txt_temperature_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ll_control_temperature_bar"
+                    android:layout_width="380dp"
+                    android:layout_height="130dp"
+                    android:orientation="vertical"
+                    android:rotation="-90"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.75"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.75">
+
+                    <SeekBar
+                        android:id="@+id/device_include_sb_temperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:thumb="@drawable/selector_seek_bar_thumb"
+                        android:progressDrawable="@drawable/layer_list_seek_bar_temperature"
+                        android:max="100"
+                        android:progress="50" />
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:id="@+id/device_include_txt_warm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:text="@string/warm_white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.075"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_control_temperature_bar"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/device_include_txt_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:text="@string/natural"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/device_include_txt_cold"
+                    app:layout_constraintStart_toEndOf="@+id/device_include_txt_warm"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_control_temperature_bar"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/device_include_txt_cold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:text="@string/cold_white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.924"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_control_temperature_bar"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>&ndash;&gt;
+
+            <RelativeLayout
+                android:id="@+id/device_include_view_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:layout_constraintHeight_percent="0.65"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:id="@+id/ll_control_brightness_bar"
+                    android:layout_width="380dp"
+                    android:layout_height="135dp"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:rotation="-90">
+
+                    <SeekBar
+                        android:id="@+id/device_include_sb_brightness"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="100"
+                        android:min="10"
+                        android:progress="50"
+                        android:progressDrawable="@drawable/layer_list_seek_bar_light"
+                        android:thumb="@drawable/selector_seek_bar_thumb"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/device_include_txt_brightness_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/gray_99"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="10" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/device_include_view_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintHeight_percent="0.75"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:id="@+id/ll_control_temperature_bar"
+                    android:layout_width="380dp"
+                    android:layout_height="135dp"
+                    android:orientation="vertical"
+                    android:rotation="-90"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+
+                    <SeekBar
+                        android:id="@+id/device_include_sb_temperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:thumb="@drawable/selector_seek_bar_thumb"
+                        android:progressDrawable="@drawable/layer_list_seek_bar_temperature"
+                        android:max="100"
+                        android:progress="50" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/device_include_txt_temperature_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/gray_99"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="10"/>
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_blank"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:layout_constraintHeight_percent="0.01"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="0.83"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_control_settings_bar"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_device_switch_bt"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:visibility="visible"
+                android:background="@drawable/selector_button_red_radius"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_blank">
+
+                <ImageView
+
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/ic_switch_on_white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <LinearLayout
+            android:id="@+id/device_setting_include_lamp_view_switch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/device_include_title">
+
+            <LinearLayout
+                android:id="@+id/ll_control_settings_bar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:maxEms="5"
+                    android:id="@+id/tv_control_brightness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="@string/brightness"
+                    android:textColor="@color/black_33"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:maxEms="5"
+                    android:visibility="gone"
+                    android:id="@+id/tv_control_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/color_temperature"
+                    android:textColor="@color/gray_c9"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:maxEms="5"
+                    android:visibility="gone"
+                    android:id="@+id/tv_control_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="@string/color_panel"
+                    android:textColor="@color/gray_c9"
+                    android:textSize="21sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <com.vcom.smartlight.widget.ColorPickerView
+                android:id="@+id/device_include_color_picker"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/device_include_view_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/ll_control_brightness_bar"
+                    android:layout_width="380dp"
+                    android:layout_height="135dp"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:rotation="-90">
+
+                    <SeekBar
+                        android:id="@+id/device_include_sb_brightness"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="90"
+                        android:progress="45"
+                        android:progressDrawable="@drawable/layer_list_seek_bar_light"
+                        android:thumb="@drawable/selector_seek_bar_thumb"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/device_include_txt_brightness_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/gray_99"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="10" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/device_include_view_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/ll_control_temperature_bar"
+                    android:layout_width="380dp"
+                    android:layout_height="135dp"
+                    android:orientation="vertical"
+                    android:rotation="-90"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+
+                    <SeekBar
+                        android:id="@+id/device_include_sb_temperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:thumb="@drawable/selector_seek_bar_thumb"
+                        android:progressDrawable="@drawable/layer_list_seek_bar_temperature"
+                        android:max="100"
+                        android:progress="50" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/device_include_txt_temperature_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/gray_99"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="10"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/device_include_view_colorPicker"
+                android:layout_width="match_parent"
+                android:layout_height="410dp"
+                android:visibility="gone">
+
+                <com.vcom.smartlight.widget.SlideColorPickerView
+                    android:id="@+id/scv_color_picker"
+                    android:layout_width="185dp"
+                    android:layout_height="370dp"
+                    android:visibility="visible"
+                    app:indicatorColor="#fff"
+                    app:indicatorEnable="true"
+                    app:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <View
+                    android:id="@+id/cl_color_value"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_alignStart="@+id/scv_color_picker"
+                    android:layout_below="@+id/scv_color_picker"
+                    android:background="@drawable/shape_color_picker_bg_green"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_rgb_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_alignBottom="@+id/cl_color_value"
+                    android:layout_toEndOf="@+id/cl_color_value"
+                    android:text="@string/rgb_value"
+                    android:textSize="@dimen/size_17"/>
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_device_switch_bt"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:visibility="visible"
+                android:background="@drawable/selector_button_red_radius">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/ic_switch_on_white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

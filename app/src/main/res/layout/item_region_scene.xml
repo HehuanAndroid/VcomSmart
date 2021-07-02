@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_region_scene_item_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="horizontal"
+            android:gravity="center|start"
+            android:background="@drawable/shape_radius_green"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_hide_img"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/iv_hide_img"
+                android:layout_centerVertical="true"
+                android:text="@string/open"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_17"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cl_region_scene_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@drawable/shape_button_white_full"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/item_scene_normal_icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/item_scene_normal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/item_scene_normal_icon"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/size_17"
+                android:textStyle="bold"
+                android:maxLength="9" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</layout>

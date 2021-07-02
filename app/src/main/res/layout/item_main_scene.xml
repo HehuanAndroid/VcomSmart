@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="170dp"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_scene_item_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center|start"
+            android:background="@drawable/shape_radius_green"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_hide_img"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/iv_hide_img"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:text="@string/open"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_17"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cl_main_scene_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_button_white_full"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/item_scene_normal_icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/item_scene_normal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/item_scene_normal_icon"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/size_17"
+                android:textStyle="bold"
+                android:maxLength="9" />
+
+            <ImageView
+                android:id="@+id/item_scene_normal_setting"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_setting"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+       <!-- <com.vcom.smartlight.widget.NewConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.vcom.smartlight.widget.NewConstraintLayout>-->
+       <!-- <LinearLayout
+            android:id="@+id/fl_delete"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#f33213">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="@string/side_slip_delete"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>-->
+
+    </RelativeLayout>
+
+
+</layout>

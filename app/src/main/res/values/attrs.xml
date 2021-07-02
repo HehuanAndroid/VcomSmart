@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SlideColorPickerView">
+        <attr name="indicatorColor" format="color" /><!--指示点颜色-->
+        <attr name="indicatorEnable" format="boolean" /><!--是否启用指示点-->
+        <attr name="orientation" format="integer">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PwdEditText">
+        <attr name="length" format="integer"/>
+        <attr name="password" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="NewButton">
+        <attr name="normal_button" format="color"/>
+        <attr name="press_button" format="color"/>
+        <attr name="radius" format="float"/>
+
+    </declare-styleable>
+
+</resources>

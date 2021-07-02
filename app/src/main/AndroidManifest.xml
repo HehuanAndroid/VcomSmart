@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vcom.smartlight">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <application
+        android:name="com.vcom.smartlight.VcomApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_app_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Smart"
+        android:configChanges="locale"
+        tools:ignore="AllowBackup">
+
+        <!--高德地图 定位sdk -debug -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="331cc3a05889a86b681d9d42a578181d"/>
+
+        <!--高德地图 定位sdk -release -->
+       <!-- <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="a9a77244f09f410d1c3d309404d85296"/>-->
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name="com.vcom.smartlight.ui.OpenActivity"
+            android:screenOrientation="portrait">
+            <!--banlap: 调试 跳过检测账号界面（之后需要恢复原样）-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vcom.smartlight.ui.ScanByBleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.DocActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.EditRegionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.AccountRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.AppHelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.DeviceSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.DeviceSafeBoxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.SmartTerminalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.TimingControlActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.ElectricityStatisticsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.SecurityWarningActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.AddSceneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.AddSceneListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.SceneManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.AddTimingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.TimingListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.AccountSettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.RegionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.RegionDemoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vcom.smartlight.ui.MainActivity"
+            android:screenOrientation="portrait" >
+
+            <!--调试-->
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="com.vcom.smartlight.ui.CustomErrorActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.vcom.smartlight.server.VcomService" />
+    </application>
+
+</manifest>

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.vcom.smartlight",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 104,
+      "versionName": "1.0.6",
+      "enabled": true,
+      "outputFile": "VcomSmart_official_v1.0.6_2021-06-16_17-43.apk"
+    }
+  ]
+}

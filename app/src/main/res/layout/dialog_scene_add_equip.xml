@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_select_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/dialog_scene_add_equip_recycler">
+
+            <TextView
+                android:id="@+id/dialog_scene_add_equip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_title_select_device"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold"
+                android:textColor="@color/black_33"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+               />
+
+            <ImageView
+                android:id="@+id/dialog_scene_add_equip_cancel"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_close"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+              />
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dialog_scene_add_equip_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_select_title" />
+
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:text="@string/dialog_cancel"
+            android:textSize="@dimen/size_17"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dialog_scene_add_equip_recycler"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_scene_add_equip_recycler"
+            app:layout_constraintVertical_bias="1" />
+
+        <Button
+            android:id="@+id/dialog_scene_add_equip_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape_radius_green"
+            android:stateListAnimator="@null"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_17"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_scene_add_equip_recycler"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
