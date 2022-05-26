@@ -1,0 +1,39 @@
+1方法区
+2.堆内存
+3..本地方法栈
+4.java栈
+5pc寄存器
+
+cd  /cygdrive/e/android-ndk/ffmpeg-4.0.2
+
+lame 
+wget https://jaist.dl.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+
+//配置so库博客
+https://blog.csdn.net/yan13507001470/article/details/120795718
+
+//linux服务器配置ffmpeg ndk库
+https://blog.csdn.net/ma598214297/article/details/105776914
+https://github.com/jdpxiaoming/PPlayer/wiki/ffmpeg4.0.2%E7%BC%96%E8%AF%91
+
+//nginx安装和部署教程linux完整版(含PCRE库、SSL库、zlib库)    音视频直播   nginx
+https://blog.csdn.net/lijunliang2017/article/details/120369252
+
+cygwin安装 ffmpeg linux _ndk
+https://www.codeleading.com/article/28543969591/
+
+//交叉编译faac
+https://blog.csdn.net/weixin_31437143/article/details/117477992
+配置ffmpeg的so库
+
+1.一个类  有一个异常的方法
+2.我们修复了这个类有问题的方法 并在这个类的方法上添加注解注解传递两个参数一个包名一个方发名
+3.通过dex批处理  将修复好的这个类编译成.dex  其他平台可以是.patch等等
+4.从服务器获取补丁包 因为java类加载是懒加载机制 类只会加载一次 所以直接替换类是不可以的
+5 只能通过内存中的方法区中的方法表替换  然后通过native  c来实现替换
+6.通过dexfile  来得到artmethod 这个类   把这个类里面所有的方法  类  替换实现实时修复
+
+andfix 优点  不用重启  小型的bug可以   兼容性差  一点手机厂商改rom会出现问题
+tinker java方式实现替换  要重启   兼容性好
+
+ffplay -i rtmp://120.25.87.183/myapp
